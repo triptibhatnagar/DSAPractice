@@ -4,12 +4,21 @@ public class E_CircularLL {
     private Node head;
     private Node tail;
 
-    public E_CircularLL() {
-        this.head = null;
-        this.tail = null;
+    // public E_CircularLL() {
+    //     this.head = null;
+    //     this.tail = null;
+    // }
+
+    private class Node {
+        int data;
+        Node next;
+
+        public Node(int data) {
+            this.data = data;
+        }
     }
 
-    public void insert(int data) {
+    public void insert(int data) {//at tail
         Node node = new Node(data);
         if(head == null) {
             head = node;
@@ -23,7 +32,7 @@ public class E_CircularLL {
 
     public void display() {
         Node temp = head;
-        if(head != null) {
+        if(temp != null) {
             do {
                 System.out.print(temp.data+" -> ");
                 temp = temp.next;
@@ -32,7 +41,7 @@ public class E_CircularLL {
         System.out.println("HEAD");
     }
 
-    public void delete(int data) {
+    public void delete(int data) {//from head
         if(head == null) {
             return;
         }
@@ -48,6 +57,8 @@ public class E_CircularLL {
             return;
         }
         do{
+            // temp - previous node
+            // node - node to be deleted
             Node node = temp.next;
             if(node.data == data) {
                 temp.next = node.next;
@@ -58,19 +69,8 @@ public class E_CircularLL {
             // }
             temp = temp.next;
         }while(temp != head);
-
         System.out.println("Deleted element: "+data);
     }
-
-    private class Node {
-        int data;
-        Node next;
-
-        public Node(int data) {
-            this.data = data;
-        }
-    }
-
     public static void main(String[] args) {
         /*
          * CIRCULAR LINKED LIST
