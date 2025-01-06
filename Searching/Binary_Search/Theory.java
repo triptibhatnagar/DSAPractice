@@ -58,4 +58,8 @@ Total no. of comparsions in worst case = log n
 Q - search in 1,000,000
 Linear Search = 1 million comparisons
 Binary search = 20 comparisons
+
+---------------- WHEN TO APPLY BINARY SEARCH ----------------
+1. sorted arrays 
+2. get a particular answer and a continuous sequence is required to get that answer
 */
