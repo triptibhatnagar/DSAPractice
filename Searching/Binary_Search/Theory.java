@@ -61,5 +61,5 @@ Binary search = 20 comparisons
 
 ---------------- WHEN TO APPLY BINARY SEARCH ----------------
 1. sorted arrays 
-2. get a particular answer and a continuous sequence is required to get that answer
+2. get a particular answer and a continuous sequence is required to get that answer, eg - sqrt of no.
 */
