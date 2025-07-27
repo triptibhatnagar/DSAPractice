@@ -3,7 +3,7 @@ import java.util.Collections;
 
 public class Leaders {
     static ArrayList<Integer> leaders_brute(int[] nums) {
-        // T: O(n^2), S: O(1) as space is not used in the logic or to solve
+        // T: O(n^2), S: O(1) as extra space to store answer is not considered.
         ArrayList<Integer> list = new ArrayList<>();
         for(int i=0; i<nums.length; i++) {
             boolean greater = true;
