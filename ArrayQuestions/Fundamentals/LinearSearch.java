@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LinearSearch {
+    // T: O(N), S: O(1)
     static int linearSearch_firstIdx(int arr[], int target) {
         for(int i=0; i<arr.length; i++) {
             if(arr[i] == target) {
@@ -10,6 +11,7 @@ public class LinearSearch {
         }
         return -1;
     }
+    // T: O(N), S: O(1)
     static boolean linearSearch_bool(int arr[], int target) {
         for(int i=0; i<arr.length; i++) {
             if(arr[i] == target) {
@@ -18,6 +20,7 @@ public class LinearSearch {
         }
         return false;
     }
+    // T: O(N), S: O(1), AS: O(N)
     static List<Integer> linearSearch_allOcc(int arr[], int target) {
         List<Integer> list = new ArrayList<>();
         for(int i=0; i<arr.length; i++) {
