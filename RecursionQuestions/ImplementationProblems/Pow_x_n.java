@@ -34,6 +34,10 @@ public class Pow_x_n {
         // even : 2^48 = (2^2)^24 = f(2*2, 24)
 
         if(n < 0) {
+            if (n == Integer.MIN_VALUE) {
+                // handle separately to avoid overflow
+                return 1.0 / (x * power(x, Integer.MAX_VALUE));
+            }
             return 1 / power(x, -1*n);
         }
         return power(x, n);
