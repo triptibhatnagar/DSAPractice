@@ -69,11 +69,54 @@ public class Palindrome {
         }
         return true;
     }
+    
+    
+    // T: O(n/2 + n/2 + n/2 + n/2) : mid, rev, checking first and second, rev
+    // S: O(1)
+    static ListNode reverseLL(ListNode head) {
+        // base case
+        if(head == null || head.next == null) {
+            return head;
+        }
+        // fxn calls will take place till last node, so at end, lastnode stored on newHead
+        ListNode newHead = reverseLL(head.next);
+        ListNode front = head.next;
+        front.next = head;
+        head.next = null;
+        return newHead;
+    }
+
+    static boolean isPalindrome_opt(ListNode head) {
+        if(head == null || head.next == null) {
+            return true;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        while(fast.next != null && fast.next.next != null) {
+            // here we do not checked fast != null && fast.next != null because we want the first mid in case of even, not the second mid
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        ListNode newHead = reverseLL(slow.next);
+        ListNode first = head;
+        ListNode second = newHead;
+        while(second != null) {
+            if(first.data != second.data) {
+                reverseLL(newHead);
+                return false;
+            }
+            first = first.next;
+            second = second.next;
+        }
+        reverseLL(newHead);
+        return true;
+    }
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
         head.next = new ListNode(2, new ListNode(1, new ListNode(1, new ListNode(1))));
         traverse(head);
         System.out.println(isPalindrome_brute1(head));
         System.out.println(isPalindrome_brute2(head));
+        System.out.println(isPalindrome_opt(head));
     }
 }
