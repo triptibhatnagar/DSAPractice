@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PascalTriangleIII {
+    // T: O(N^2), S: O(N^2)
     static List<Integer> generateRow(int n) {
         List<Integer> row = new ArrayList<>();
         row.add(1);

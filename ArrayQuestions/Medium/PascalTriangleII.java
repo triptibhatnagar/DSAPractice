@@ -1,6 +1,7 @@
 import java.util.Arrays;
 
 public class PascalTriangleII {
+    // T: O(n), S: O(1)
     static int[] pascalTriangleII(int r) {
         int ans[] = new int[r];
         ans[0] = 1;

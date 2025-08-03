@@ -1,4 +1,5 @@
 public class PascalTriangleI {
+    // T: O(c), S:O(1)
     static int nCr(int n, int r) {
         if(r > n-r)
             r = n-r;
