@@ -1,4 +1,5 @@
 public class LowerBound {
+    // nums[m] >= x
     static int lb(int nums[], int x) {
         int l = 0;
         int h = nums.length-1;
