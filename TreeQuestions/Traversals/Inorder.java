@@ -23,7 +23,7 @@ class TreeNode {
     }
 }
 public class Inorder {
-    // left access right
+    // L Acc R
     static void inorder_rec(TreeNode root, List<Integer> in) {
         if(root == null) 
             return;
@@ -37,32 +37,38 @@ public class Inorder {
         // simulate recursion
         Stack<TreeNode> st = new Stack<>();
         while (true) {
-            if(temp != null) {
-                // left
-                st.push(temp);
-                temp = temp.left;
+            if(temp != null) {// not null => a new node
+                st.push(temp);// store
+                temp = temp.left;// go to its left
             } else {
-                if (st.isEmpty()) {
+                if (st.isEmpty()) {// check to avoid error while pop, also, breaks the loop, avoids infinite loop and error
                     break;
                 }
-                temp = st.pop();
-                in.add(temp.data);
-                temp = temp.right;
+                temp = st.pop();// access node / pop
+                in.add(temp.data);// add in list
+                temp = temp.right;// go to right
             }
         }
         return in;
     }
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(4);
-        root.left.left = new TreeNode(4);
-        root.left.right = new TreeNode(2);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.right = new TreeNode(4);
+        root.left.right.left = new TreeNode(5);
+        root.left.right.right = new TreeNode(6);
+        root.right.left = new TreeNode(7);
+        root.right.right = new TreeNode(8);
+        // TreeNode root = new TreeNode(1);
+        // root.left = new TreeNode(4);
+        // root.left.left = new TreeNode(4);
+        // root.left.right = new TreeNode(2);
         // List<Integer> inorder = new ArrayList<>();
         // inorder_rec(root, inorder);
         // System.out.println(inorder);
 
         List<Integer> inorder = inorder_iter(root);
         System.out.println(inorder);
-        
     }
 }
